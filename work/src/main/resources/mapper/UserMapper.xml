@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wxj.work.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.wxj.work.entity.User">
+    <id column="number" jdbcType="BIGINT" property="number" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="picture" jdbcType="VARCHAR" property="picture" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="company_id" jdbcType="INTEGER" property="companyId" />
+    <result column="employee_id" jdbcType="INTEGER" property="employeeId" />
+    <result column="realName" jdbcType="VARCHAR" property="realname" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    number, password, picture, email, company_id, employee_id, realName
+  </sql>
+  <select id="selectByExample" parameterType="com.wxj.work.entity.UserExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from user
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where number = #{number,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from user
+    where number = #{number,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.wxj.work.entity.UserExample">
+    delete from user
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.wxj.work.entity.User">
+    insert into user (number, password, picture, 
+      email, company_id, employee_id, 
+      realName)
+    values (#{number,jdbcType=BIGINT}, #{password,jdbcType=VARCHAR}, #{picture,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{companyId,jdbcType=INTEGER}, #{employeeId,jdbcType=INTEGER}, 
+      #{realname,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wxj.work.entity.User">
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="number != null">
+        number,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="picture != null">
+        picture,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="companyId != null">
+        company_id,
+      </if>
+      <if test="employeeId != null">
+        employee_id,
+      </if>
+      <if test="realname != null">
+        realName,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="number != null">
+        #{number,jdbcType=BIGINT},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="picture != null">
+        #{picture,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null">
+        #{companyId,jdbcType=INTEGER},
+      </if>
+      <if test="employeeId != null">
+        #{employeeId,jdbcType=INTEGER},
+      </if>
+      <if test="realname != null">
+        #{realname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.wxj.work.entity.UserExample" resultType="java.lang.Long">
+    select count(*) from user
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update user
+    <set>
+      <if test="record.number != null">
+        number = #{record.number,jdbcType=BIGINT},
+      </if>
+      <if test="record.password != null">
+        password = #{record.password,jdbcType=VARCHAR},
+      </if>
+      <if test="record.picture != null">
+        picture = #{record.picture,jdbcType=VARCHAR},
+      </if>
+      <if test="record.email != null">
+        email = #{record.email,jdbcType=VARCHAR},
+      </if>
+      <if test="record.companyId != null">
+        company_id = #{record.companyId,jdbcType=INTEGER},
+      </if>
+      <if test="record.employeeId != null">
+        employee_id = #{record.employeeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.realname != null">
+        realName = #{record.realname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update user
+    set number = #{record.number,jdbcType=BIGINT},
+      password = #{record.password,jdbcType=VARCHAR},
+      picture = #{record.picture,jdbcType=VARCHAR},
+      email = #{record.email,jdbcType=VARCHAR},
+      company_id = #{record.companyId,jdbcType=INTEGER},
+      employee_id = #{record.employeeId,jdbcType=INTEGER},
+      realName = #{record.realname,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wxj.work.entity.User">
+    update user
+    <set>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="picture != null">
+        picture = #{picture,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null">
+        company_id = #{companyId,jdbcType=INTEGER},
+      </if>
+      <if test="employeeId != null">
+        employee_id = #{employeeId,jdbcType=INTEGER},
+      </if>
+      <if test="realname != null">
+        realName = #{realname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where number = #{number,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wxj.work.entity.User">
+    update user
+    set password = #{password,jdbcType=VARCHAR},
+      picture = #{picture,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      company_id = #{companyId,jdbcType=INTEGER},
+      employee_id = #{employeeId,jdbcType=INTEGER},
+      realName = #{realname,jdbcType=VARCHAR}
+    where number = #{number,jdbcType=BIGINT}
+  </update>
+
+  <!-- 插入一个商品
+  <insert id="insertProduct" parameterType="domain.model.ProductBean" >
+    <selectKey resultType="java.lang.Long" order="AFTER" keyProperty="productId">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    INSERT INTO t_product(productName,productDesrcible,merchantId)values(#{productName},#{productDesrcible},#{merchantId});
+  </insert>-->
+
+  <insert id="registerUser" parameterType="com.wxj.work.entity.User"  useGeneratedKeys="true" keyProperty="number">
+    insert into `user` (`number`,`realName`,`email`,`password`)values (0,#{realname},#{email},#{password});
+  </insert>
+
+  <!--select id="queryUserBelongsTo" resultMap="BaseResultMap">
+    select company_id from user where number=#{number}
+  </select-->
+
+  <select id="queryCompanyUser" resultMap="BaseResultMap">
+    select * from user where company_id = (select company_id from user where number=#{number}) and number != #{number};
+  </select>
+
+  <update id="updateUserCompanyId" parameterType="com.wxj.work.entity.User">
+    update user set company_id=#{companyId},employee_id=#{employeeId} where number=#{number};
+  </update>
+  <!--<select id="queryUserInformation" resultMap="BaseResultMap">
+    select number, password, realName, email, company_id, employee_id from user where number=#{number}
+  </select>-->
+  <update id="updateInformation" parameterType="com.wxj.work.entity.User">
+    update user set realName=#{realName},email=#{email} where number=#{number};
+  </update>
+</mapper>

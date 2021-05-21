@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">工作移交</string>
+    <string name="title_work">工作</string>
+    <string name="title_notifications">通知</string>
+    <string name="title_contactpeople">联系人</string>
+    <string name="title_me">个人中心</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">密码</string>
+    <string name="action_sign_in">登录</string>
+    <string name="action_register">注册</string>
+    <string name="action_forget_password">忘记密码</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="user_information">个人信息</string>
+    <string name="about">关于</string>
+    <string name="input_new_password">新密码：</string>
+    <string name="input_old_password">旧密码：</string>
+    <string name="determine">确定</string>
+    <string name="change_password">修改密码</string>
+    <string name="add_contact">添加常用移交人</string>
+    <string name="cancel">取消</string>
+    <string name="get_from_album">从相册中获取</string>
+    <string name="real_name">姓名</string>
+    <string name="input_real_name">请输入您的真实姓名</string>
+    <string name="input_password">请输入密码</string>
+    <string name="input_email">请输入邮箱</string>
+    <string name="title_activity_register_result">注册结果</string>
+    <string name="back_to_login">返回登录页面</string>
+    <string name="show_number">您的账号为</string>
+    <string name="added">已经添加的联系人</string>
+    <string name="register_company">注册公司</string>
+    <string name="coompany_id">公司id</string>
+    <string name="company_name">公司名称</string>
+    <string name="application0">申请</string>
+    <string name="join_company">申请加入公司</string>
+    <string name="input_work_name">请填写工作名称</string>
+    <string name="input_work_description">请填写工作说明</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

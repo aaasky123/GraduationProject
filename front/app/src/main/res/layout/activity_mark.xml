@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.work.MarkActivity">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:background="#C4C4C4"/>
+    <EditText
+        android:id="@+id/edit_Mark"
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        android:background="#ffffff"
+        android:drawablePadding="16dp"
+        android:singleLine="true"
+        android:ems="10"
+        android:scrollbars="vertical"
+        android:minLines="2"
+        android:gravity="top"
+        android:inputType="textMultiLine"
+        android:hint="请输入批注" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#C4C4C4"/>
+    <Button
+        android:id="@+id/add_mark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/buttonBule"
+        android:text="Button" />
+</LinearLayout>
