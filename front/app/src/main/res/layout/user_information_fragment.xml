@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.userinformation.UserInformationFragment">
+
+    <LinearLayout
+        android:id="@+id/user_information_detail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="姓名"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/realName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/prompt_email"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textVie9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="公司"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/company"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="雇员编号"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/employee"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/changeInformation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="编辑个人信息" />
+
+    </LinearLayout>
+</FrameLayout>
