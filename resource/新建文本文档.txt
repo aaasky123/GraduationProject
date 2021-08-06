@@ -1,3 +1,0 @@
-mysqldump -u root -p workTurnManagementSystem>D:\GraduationProject\resource\database.sql
-
-scp D:\GraduationProject\work\target\work-1.0-SNAPSHOT.jar root@x.x.x.x:/root
